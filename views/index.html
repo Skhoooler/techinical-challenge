@@ -18,10 +18,16 @@
         <script type="text/javascript" src="/js/build.js"></script>
         <link rel="stylesheet" type="text/css" href="/style/scss/style.css"> </link>
 
-        <p>Hello World</p>
         <table class="table">
-            <!-- Table head and body will be populated by loadUserInfo(table) in index.ts on window load -->
-            <thead></thead>
+            <!-- Table body will be populated by loadUserInfo(table) in index.ts on window load -->
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Website</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                </tr>
+            </thead>
             <tbody></tbody>
         </table>
     </section>
