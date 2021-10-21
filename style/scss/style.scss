@@ -1,5 +1,20 @@
 @import 'partials/main';
 
-p {
-    color: $brand-primary;
+table{
+    margin-left : auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    
+    thead{
+        color: $text;
+        text-align: left;
+    }
+
+    tr#user:hover {
+        background-color: $light-four;
+    }
+}
+
+section {
+    box-shadow: -1px 3px 10px 3px $light-four;
 }

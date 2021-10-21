@@ -33,7 +33,23 @@ body section {
   background-color: #FFFFFF;
 }
 
-p {
-  color: #FF6900;
+table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+table thead {
+  color: #303D46;
+  text-align: left;
+}
+
+table tr#user:hover {
+  background-color: #D3D8DC;
+}
+
+section {
+  -webkit-box-shadow: -1px 3px 10px 3px #D3D8DC;
+          box-shadow: -1px 3px 10px 3px #D3D8DC;
 }
 /*# sourceMappingURL=style.css.map */

@@ -52,15 +52,16 @@ function loadUserInfointoTable(url, table) {
                     return [4, response.json()];
                 case 2:
                     data = _a.sent();
-                    console.log(data);
                     _loop_1 = function (user) {
                         var newRow = document.createElement("tr");
-                        var userInfo = [user.name, user.website, user.email, "placeholder"];
+                        var userInfo = [user.name, user.website, user.email, assembleUserAddress(user)];
                         userInfo.forEach(function (information) {
                             var newCell = document.createElement("td");
                             newCell.textContent = information;
                             newRow.appendChild(newCell);
                         });
+                        newRow.setAttribute('id', 'user');
+                        newRow.addEventListener('click', clickRow);
                         tableBody.appendChild(newRow);
                     };
                     for (_i = 0, data_1 = data; _i < data_1.length; _i++) {
@@ -76,4 +77,10 @@ function loadUserInfointoTable(url, table) {
             }
         });
     });
+}
+function assembleUserAddress(user) {
+    return user.address.street + ", " + user.address.city + " " + user.address.zipcode;
+}
+function clickRow() {
+    console.log("row clicked");
 }
