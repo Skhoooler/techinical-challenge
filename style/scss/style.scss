@@ -4,16 +4,55 @@ table{
     margin-left : auto;
     margin-right: auto;
     border-collapse: collapse;
-    
+
     thead{
         color: $text;
         text-align: left;
     }
+    tr{
+        line-height: auto;
+        padding: 0 15px;
+        
+        td {
+            padding: 0 15px;
+            font: bold;
+        }
 
+        td:nth-child(1) {
+            color: $blue-primary;
+        }
+    }
     tr#user:hover {
         background-color: $light-four;
     }
 }
+
+h1{
+    color: $brand-primary;
+    font-size: large;
+    text-align:left;
+    margin-top: 10px;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+  }
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border-radius: 15px;
+    width: 40%; 
+  }
 
 section {
     box-shadow: -1px 3px 10px 3px $light-four;

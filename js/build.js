@@ -36,11 +36,46 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 window.onload = function () {
     var userInfoURL = "https://jsonplaceholder.typicode.com/users";
+    var todoTaskURL = "https://jsonplaceholder.typicode.com/todos";
     loadUserInfointoTable(userInfoURL, document.querySelector("table"));
+    loadUserTodoTasks(todoTaskURL);
 };
+function loadUserTodoTasks(url) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response, data, table, rowCount, allUserTasks, userNum, singleUserTasks, _i, data_1, lineObject, i;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4, fetch(url)];
+                case 1:
+                    response = _a.sent();
+                    return [4, response.json()];
+                case 2:
+                    data = _a.sent();
+                    table = document.querySelector('table');
+                    rowCount = table.getElementsByTagName('tr').length - 1;
+                    allUserTasks = new Array(rowCount);
+                    userNum = 1;
+                    singleUserTasks = [];
+                    for (_i = 0, data_1 = data; _i < data_1.length; _i++) {
+                        lineObject = data_1[_i];
+                        if (lineObject.userId !== userNum) {
+                            userNum++;
+                            allUserTasks[userNum - 1] = singleUserTasks;
+                            singleUserTasks = [];
+                        }
+                        singleUserTasks.push(lineObject.title);
+                    }
+                    for (i = 0; i < rowCount; i++) {
+                        localStorage.setItem(i.toString(), allUserTasks[i]);
+                    }
+                    return [2];
+            }
+        });
+    });
+}
 function loadUserInfointoTable(url, table) {
     return __awaiter(this, void 0, void 0, function () {
-        var tableBody, response, data, _loop_1, _i, data_1, user, error_1;
+        var tableBody, response, data, _loop_1, _i, data_2, user, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -64,8 +99,8 @@ function loadUserInfointoTable(url, table) {
                         newRow.addEventListener('click', clickRow);
                         tableBody.appendChild(newRow);
                     };
-                    for (_i = 0, data_1 = data; _i < data_1.length; _i++) {
-                        user = data_1[_i];
+                    for (_i = 0, data_2 = data; _i < data_2.length; _i++) {
+                        user = data_2[_i];
                         _loop_1(user);
                     }
                     return [3, 4];
@@ -82,5 +117,14 @@ function assembleUserAddress(user) {
     return user.address.street + ", " + user.address.city + " " + user.address.zipcode;
 }
 function clickRow() {
-    console.log("row clicked");
+    var modal = document.getElementById("todoTasks");
+    var modalContent = document.getElementById("modal content");
+    modalContent.textContent = localStorage.getItem(this.rowIndex);
+    modal.style.display = "block";
 }
+window.onclick = function (event) {
+    var modal = document.getElementById("todoTasks");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};

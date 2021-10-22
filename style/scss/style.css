@@ -44,8 +44,49 @@ table thead {
   text-align: left;
 }
 
+table tr {
+  line-height: auto;
+  padding: 0 15px;
+}
+
+table tr td {
+  padding: 0 15px;
+  font: bold;
+}
+
+table tr td:nth-child(1) {
+  color: #2485E1;
+}
+
 table tr#user:hover {
   background-color: #D3D8DC;
+}
+
+h1 {
+  color: #FF6900;
+  font-size: large;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 15px;
+  width: 40%;
 }
 
 section {

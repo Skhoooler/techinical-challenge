@@ -14,7 +14,9 @@
 <body>
 
     <!-- Put your code in the section tag  -->
+    <h1>Shine Solar</h1>
     <section>
+        
         <script type="text/javascript" src="/js/build.js"></script>
         <link rel="stylesheet" type="text/css" href="/style/scss/style.css"> </link>
 
@@ -22,14 +24,19 @@
             <!-- Table body will be populated by loadUserInfo(table) in index.ts on window load -->
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Website</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Address</th>
+                    <th scope="col" id="name"   >Name</th>
+                    <th scope="col" id="website">Website</th>
+                    <th scope="col" id="email"  >Email</th>
+                    <th scope="col" id="address">Address</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </table>
+        <div id="todoTasks" class="modal">
+            <div class="modal-content">
+                <p id="modal content"></p>
+            </div>
+        </div>
     </section>
 
 </body>
